@@ -1,7 +1,7 @@
 <template>
   <div id="Signup">
     <div class="logo">
-      <img src="../../static/img/logo.gif" alt="tdd">
+      <img src="../../../static/img/logo.gif" alt="tdd">
       <p class="link">welcome</p>
     </div>
     <div class="login">

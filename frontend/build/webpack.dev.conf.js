@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const SpritesmithPlugin = require('webpack-spritesmith');
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -44,6 +45,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     }
   },
+  resolve: {
+    modules: ["node_modules", "spritesmith-generated"]
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
@@ -64,7 +68,20 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new SpritesmithPlugin({
+      src: {
+        cwd: path.resolve(__dirname, '../src/assets/img/png'),
+        glob: '*.png'
+      },
+      target: {
+        image: path.resolve(__dirname, '../src/spritesmith-generated/sprite.png'),
+        css: path.resolve(__dirname, '../src/spritesmith-generated/sprite.scss')
+      },
+      apiOptions: {
+        cssImageRef: "~sprite.png"
+      }
+    })
   ]
 })
 

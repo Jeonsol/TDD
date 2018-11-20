@@ -285,7 +285,11 @@
               <div class="day">
                 &nbsp;
               </div>
-              <div class="bar_area" />
+              <div class="bar_area" >
+                <span class="bar todo"><span class="blind">todo</span></span>
+                <span class="bar diet"><span class="blind">diet</span></span>
+                <span class="bar diary"><span class="blind">diary</span></span>
+              </div>
             </a>
           </td>
           <td>
@@ -464,8 +468,27 @@ export default {
         font-size: 10px;
       }
       .bar_area {
+        width: 100%;
         height: 50px;
+        padding: 5px;
         background-color: #f1efe7;
+        box-sizing: border-box;
+        .bar {
+          display: block;
+          height: 10px;
+          & + .bar {
+            margin-top: 5px;
+          }
+          &.todo {
+            background-color: #f1c3ae;
+          }
+          &.diet {
+            background-color: #f5d39f;
+          }
+          &.diary {
+            background-color: #b2c0e5;
+          }
+        }
       }
     }
     & + td {

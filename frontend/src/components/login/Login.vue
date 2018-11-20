@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <div class="logo">
-      <img src="../../static/img/logo.gif" alt="tdd">
+      <img src="../../../static/img/logo.gif" alt="tdd">
       <a :href="url.signUpUrl" class="link">join us?</a>
     </div>
     <div class="login">

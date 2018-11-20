@@ -2,12 +2,14 @@
   <div class="home">
     <Calendar />
     <Tab />
+    <Layer />
   </div>
 </template>
 
 <script>
-import Calendar from './common/Calendar'
-import Tab from './common/Tab'
+import Calendar from '../common/Calendar'
+import Tab from '../common/Tab'
+import Layer from './Layer'
 
 export default {
   name: 'home',
@@ -18,7 +20,8 @@ export default {
   },
   components: {
     Tab,
-    Calendar
+    Calendar,
+    Layer
   }
 }
 </script>
@@ -31,6 +34,6 @@ export default {
 </style>
 <style lang="scss" scoped>
   .home {
-    padding: 30px;
+    padding: 30px 30px 80px;
   }
 </style>
