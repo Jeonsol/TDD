@@ -379,12 +379,13 @@ export default {
     return {
       document: null,
       year: 0,
-      month: 0
+      month: 0,
+      date: 0
     }
   },
   methods: {
     calendar (newYear, newMonth) {
-      var currentDate, dLength, year, month, date, day, currentYear, currentMonth, prevDate, prevYear, prevMonth, nextDate, nextYear, nextMonth, td, startDay
+      var currentDate, dLength, year, month, date, day, currentYear, currentMonth, prevDate, prevYear, prevMonth, nextDate, nextYear, nextMonth, td, startDay, link
 
       currentDate = new Date(newYear, newMonth - 1, 1)
       dLength = 32 - new Date(newYear, newMonth - 1, 32).getDate()
@@ -393,6 +394,7 @@ export default {
       month = currentDate.getMonth()
       date = currentDate.getDate()
       day = currentDate.getDay()
+
       prevDate = new Date(year, month - 1, 1)
       nextDate = new Date(year, month + 1, 1)
 
@@ -404,14 +406,22 @@ export default {
       nextMonth = this.document.querySelector('.next .month')
       td = this.document.querySelectorAll('td')
       startDay = this.document.querySelectorAll('td .day')
+      link = this.document.querySelectorAll('td a')
 
-      for (var i = 0; i < startDay.length; i++) {
+      for (let i = 0; i < startDay.length; i++) {
         startDay[i].innerHTML = '&nbsp;'
         td[i].classList.remove('active')
       }
-      for (i = day; i < day + dLength; i++) {
+
+      for (let i = day; i < day + dLength; i++) {
+        link[i].onclick = (e) => {
+          let selectedDate = link[i].querySelector('.day').innerHTML
+          this.$store.state.showLayer = true
+          this.$store.state.selectedDate = year.toString() + (month + 1).toString() + selectedDate.toString()
+        }
         startDay[i].innerHTML = date
         td[i].classList.add('active')
+
         date++
       }
 
@@ -433,13 +443,18 @@ export default {
     this.document = await document
     this.year = new Date().getFullYear()
     this.month = new Date().getMonth() + 1
+    this.date = new Date().getDate()
     this.calendar(this.year, this.month)
+
+    this.$store.state.today = this.year.toString() + this.month.toString() + this.date.toString()
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+  @import '../../assets/scss/variable';
+
   #calendar_wrap {
     text-align: center;
   }
@@ -480,13 +495,13 @@ export default {
             margin-top: 5px;
           }
           &.todo {
-            background-color: #f1c3ae;
+            background-color: $todo;
           }
           &.diet {
-            background-color: #f5d39f;
+            background-color: $diet;
           }
           &.diary {
-            background-color: #b2c0e5;
+            background-color: $diary;
           }
         }
       }

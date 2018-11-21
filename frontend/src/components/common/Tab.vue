@@ -1,23 +1,42 @@
 <template>
   <ul class="tab_list">
     <li class="list tdd">
-      <button type="button" class="home"><span class="blind">home</span></button>
+      <a @click="clickTab('home')" class="home"><span class="blind">home</span></a>
     </li>
     <li class="list todo">
-      <button type="button" class="todo"><span class="blind">todo</span></button>
+      <a @click="clickTab('todo')" class="todo"><span class="blind">todo</span></a>
     </li>
     <li class="list diet">
-      <button type="button" class="diet"><span class="blind">diet</span></button>
+      <a @click="clickTab('diet')" class="diet"><span class="blind">diet</span></a>
     </li>
     <li class="list diary">
-      <button type="button" class="diary"><span class="blind">diary</span></button>
+      <a @click="clickTab('diary')" class="diary"><span class="blind">diary</span></a>
     </li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'Tab'
+  name: 'Tab',
+  data () {
+    return {
+      homeUrl: '/',
+      todoUrl: '/todo',
+      dietUrl: '/diet',
+      diaryUrl: '/diary'
+    }
+  },
+  methods: {
+    clickTab: function (item) {
+      let url
+      if (item === 'home') {
+        url = '/'
+      } else {
+        url = '/' + item + '/' + this.$store.state.today
+      }
+      this.$router.push(url)
+    }
+  }
 }
 </script>
 
@@ -45,11 +64,13 @@ export default {
         background-color: #f5f5f5;
         content: '';
       }
-      button {
-        width: 100%;
+      a {
+        display: block;
         height: 50px;
+        line-height: 50px;
         &:before {
           display: inline-block;
+          margin-top: 9px;
           vertical-align: top;
           content: '';
         }

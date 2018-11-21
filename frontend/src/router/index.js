@@ -5,6 +5,9 @@ import Users from '@/components/AllUsersPage'
 import User from '@/components/UsersPage'
 import SignUp from '@/components/login/Signup'
 import Login from '@/components/login/Login'
+import Todo from '@/components/Todo/index'
+import Diet from '@/components/Diet/index'
+import Diary from '@/components/Diary/index'
 
 Vue.use(Router)
 
@@ -35,6 +38,21 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/todo/:date',
+      name: 'todo',
+      component: Todo
+    },
+    {
+      path: '/diet/:date',
+      name: 'diet',
+      component: Diet
+    },
+    {
+      path: '/diary/:date',
+      name: 'diary',
+      component: Diary
     }
   ]
 })

@@ -1,27 +1,22 @@
 <template>
-  <div class="home">
-    <Calendar />
+  <div class="diary">
+    다이어리
     <Tab />
-    <Layer />
   </div>
 </template>
 
 <script>
-import Calendar from '../common/Calendar'
 import Tab from '../common/Tab'
-import Layer from './Layer'
 
 export default {
-  name: 'home',
+  name: 'diary',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
   },
   components: {
-    Tab,
-    Calendar,
-    Layer
+    Tab
   }
 }
 </script>
@@ -31,15 +26,5 @@ export default {
 <style lang="scss" scoped>
   .home {
     padding: 30px 30px 80px;
-    &:before {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      background-color: #3a3a3a;
-      content: '';
-    }
   }
 </style>
