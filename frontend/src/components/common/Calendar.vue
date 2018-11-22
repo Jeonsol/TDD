@@ -417,7 +417,7 @@ export default {
         link[i].onclick = (e) => {
           let selectedDate = link[i].querySelector('.day').innerHTML
           this.$store.state.showLayer = true
-          this.$store.state.selectedDate = year.toString() + (month + 1).toString() + selectedDate.toString()
+          this.$store.state.selectedDate = year.toString() + '-' + (month + 1).toString() + '-' + selectedDate.toString()
         }
         startDay[i].innerHTML = date
         td[i].classList.add('active')
@@ -446,7 +446,7 @@ export default {
     this.date = new Date().getDate()
     this.calendar(this.year, this.month)
 
-    this.$store.state.today = this.year.toString() + this.month.toString() + this.date.toString()
+    this.$store.state.today = this.year.toString() + '-' + this.month.toString() + '-' + this.date.toString()
   }
 }
 </script>
@@ -469,6 +469,18 @@ export default {
     font-size: 20px;
     color: #fff;
     box-sizing: border-box;
+    .prev, .next {
+      position: absolute;
+      top: 16px;
+      font-size: 12px;
+      color: #fff;
+    }
+    .prev {
+      left: 0;
+    }
+    .next {
+      right: 0;
+    }
   }
   table,th,td {
     color: #fff;
@@ -518,17 +530,5 @@ export default {
     & + tr {
       border-top: 6px solid #3a3a3a;
     }
-  }
-  .prev, .next {
-    position: absolute;
-    top: 16px;
-    font-size: 12px;
-    color: #fff;
-  }
-  .prev {
-    left: 0;
-  }
-  .next {
-    right: 0;
   }
 </style>

@@ -15,7 +15,8 @@ export default {
   name: 'layer',
   methods: {
     clickLayer: function (item) {
-      let url = item + '/' + this.$store.state.selectedDate
+      let url = item
+      this.$store.state.headerDate = this.$store.state.selectedDate
       this.$router.push(url)
     },
     clickDim: function () {

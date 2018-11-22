@@ -40,17 +40,17 @@ export default new Router({
       component: Login
     },
     {
-      path: '/todo/:date',
+      path: '/todo',
       name: 'todo',
       component: Todo
     },
     {
-      path: '/diet/:date',
+      path: '/diet',
       name: 'diet',
       component: Diet
     },
     {
-      path: '/diary/:date',
+      path: '/diary',
       name: 'diary',
       component: Diary
     }

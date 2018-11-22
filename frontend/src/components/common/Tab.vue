@@ -34,6 +34,8 @@ export default {
       } else {
         url = '/' + item + '/' + this.$store.state.today
       }
+      this.$store.state.headerDate = this.$store.state.today
+      this.$store.state.showLayer = false
       this.$router.push(url)
     }
   }

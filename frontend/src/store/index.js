@@ -6,7 +6,8 @@ Vue.use(Vuex)
 const state = {
   showLayer: false,
   selectedDate: '',
-  today: ''
+  today: '',
+  headerDate: ''
 }
 const mutations = {}
 

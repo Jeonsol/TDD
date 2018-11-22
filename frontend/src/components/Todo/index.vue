@@ -1,12 +1,13 @@
 <template>
   <div class="todo">
-   투두
+  <Header />
   <Tab />
   </div>
 </template>
 
 <script>
 import Tab from '../common/Tab'
+import Header from '../common/Header'
 
 export default {
   name: 'todo',
@@ -16,14 +17,15 @@ export default {
     }
   },
   components: {
-    Tab
+    Tab,
+    Header
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  .home {
+  .todo {
     padding: 30px 30px 80px;
   }
 </style>
