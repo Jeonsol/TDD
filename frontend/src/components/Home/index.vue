@@ -31,15 +31,5 @@ export default {
 <style lang="scss" scoped>
   .home {
     padding: 30px 30px 80px;
-    &:before {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      background-color: #3a3a3a;
-      content: '';
-    }
   }
 </style>

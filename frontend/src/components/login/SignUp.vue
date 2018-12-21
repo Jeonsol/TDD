@@ -64,6 +64,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  #Signup {
+    &:before {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #f5f4df;
+      z-index: -1;
+      content: '';
+    }
+  }
   .logo {
     text-align: center;
     img {

@@ -5,6 +5,8 @@ Vue.use(Vuex)
 
 const state = {
   showLayer: false,
+  showDietLayer: false,
+  showAddDietLayer: false,
   selectedDate: '',
   today: '',
   headerDate: ''

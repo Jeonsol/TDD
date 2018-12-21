@@ -1,22 +1,20 @@
 <template>
   <div class="header">
     <div class="current">
-      <div class="current">
-        <span class="year"></span>년
-        <span class="month"></span>월
-        <span class="date"></span>일
-      </div>
-      <a href="#" class="prev" @click="prev()">
-        <span class="year"></span>년
-        <span class="month"></span>월
-        <span class="date"></span>일
-      </a>
-      <a href="#" class="next" @click="next()">
-        <span class="year"></span>년
-        <span class="month"></span>월
-        <span class="date"></span>일
-      </a>
+      <span class="year"></span>년
+      <span class="month"></span>월
+      <span class="date"></span>일
     </div>
+    <a href="#" class="prev" @click="prev()">
+      <span class="year"></span>년
+      <span class="month"></span>월
+      <span class="date"></span>일
+    </a>
+    <a href="#" class="next" @click="next()">
+      <span class="year"></span>년
+      <span class="month"></span>월
+      <span class="date"></span>일
+    </a>
   </div>
 </template>
 
@@ -81,6 +79,7 @@ export default {
     padding: 10px 0;
     font-size: 20px;
     box-sizing: border-box;
+    color: #fff;
     .current {
       text-align: center;
     }
@@ -88,7 +87,7 @@ export default {
       position: absolute;
       top: 16px;
       font-size: 12px;
-      color: #000;
+      color: #a9a2a7;
     }
     .prev {
       left: -10px;

@@ -32,7 +32,7 @@ export default {
       if (item === 'home') {
         url = '/'
       } else {
-        url = '/' + item + '/' + this.$store.state.today
+        url = '/' + item
       }
       this.$store.state.headerDate = this.$store.state.today
       this.$store.state.showLayer = false
